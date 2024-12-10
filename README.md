@@ -1,45 +1,132 @@
-Overview
-This repository contains a comprehensive analysis of the T20 World Cup matches, focusing on match results and player performances. The analysis is conducted using Python, leveraging libraries such as Pandas and NumPy for data manipulation and analysis.
-Repository Structure
-data/: Contains JSON files with match results and batting summaries.
-notebooks/: Jupyter notebooks for data processing and analysis.
-results/: Output CSV files generated from the analysis.
-Installation
-To run the analysis, ensure you have Python 3.x installed along with the following packages:
-bash
-pip install pandas numpy
+# T20 World Cup Analysis Project
 
-Usage
-Load Data: The match results and batting summaries are loaded from JSON files.
-python
-import pandas as pd
-import json
+This repository provides a comprehensive analysis of T20 World Cup cricket data using advanced analytics techniques. By leveraging Python for data processing and Power BI for visualizations, this project delivers actionable insights into player performances, match outcomes, and team strategies.
 
-with open('t20_wc_match_results.json') as f:
-    data = json.load(f)
-dfmatch = pd.DataFrame(data[0]['matchSummary'])
+---
 
-Data Processing: The match results are processed to create a summary DataFrame.
-python
-dfmatch.rename({'scorecard': 'match_id'}, axis=1, inplace=True)
+## Features
 
-Analysis: Perform various analyses such as finding the winner of each match and summarizing player performances.
-python
-df_batting = pd.DataFrame(all_records)
-df_batting['out/not_out'] = df_batting.dismissal.apply(lambda x: "out" if len(x) > 0 else "not_out")
+- **Data-Driven Insights**: Detailed analysis of batting, bowling, and match outcomes.
+- **Interactive Dashboards**: Pre-built Power BI reports for exploration and decision-making.
+- **Scalable Framework**: Reusable datasets and scripts for further customization.
+- **Advanced Analytics**: DAX measures and calculated columns for deeper insights.
 
-Export Results: The processed data can be exported to CSV for further use.
-python
-dfmatch.to_csv('dim_match_summary.csv', index=False)
+---
 
-Example Data
-The following is an example of the match results processed in this analysis:
-team1	team2	winner	margin	ground	matchDate
-Namibia	Sri Lanka	Namibia	55 runs	Geelong	Oct 16, 2022
-Netherlands	U.A.E.	Netherlands	3 wickets	Geelong	Oct 16, 2022
-Scotland	West Indies	Scotland	42 runs	Hobart	Oct 17, 2022
-Contributing
-Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-For more details, visit the project on GitHub: T20 World Cup Analysis.
+## Repository Structure
+
+```plaintext
+T20_worldcup_analysis_main/
+│
+├── Code Files
+│   ├── t20dataprocessing.ipynb            # Jupyter notebook for data processing and analysis
+│   ├── DAX Measures and Calculated columns.csv
+│   ├── DAX Measures and Calculated columns.xlsx
+│
+├── Data
+│   ├── JSON
+│   │   ├── t20_wc_batting_summary.json    # Batting performance data
+│   │   ├── t20_wc_bowling_summary.json    # Bowling performance data
+│   │   ├── t20_wc_match_results.json      # Match results and metadata
+│   │   ├── t20_wc_player_info.json        # Player information
+│   │
+│   ├── CSV
+│       ├── dim_match_summary.csv          # Match summary dimension table
+│       ├── dim_players.csv                # Players dimension table
+│       ├── fact_bating_summary.csv        # Batting statistics fact table
+│       ├── fact_bowling_summary.csv       # Bowling statistics fact table
+│
+├── Power BI Reports
+│   ├── Cricket Best 11.pbix               # Visualization of the best-performing team
+│   ├── Stage-2.pbix                       # Advanced Power BI analysis report
+│   ├── Stage-3.pbix                       # Final stage of Power BI reporting
+│   ├── t20_cric_1_power_query.pbix        # Data modeling and initial Power BI report
+│
+├── IDE Configurations
+│   ├── .idea/                             # IntelliJ IDEA project settings
+
+```
+
+---
+
+## Prerequisites
+
+### Software Requirements
+- **Python**: Ensure Python 3.8 or higher is installed with the following libraries:
+  - `pandas`, `numpy`, `jupyter`, `matplotlib`
+- **Power BI Desktop**: Required to open `.pbix` files.
+- **Jupyter Notebook**: For running the Python analysis notebook.
+
+### Dataset Availability
+All required datasets are included in this repository (`JSON` and `CSV` formats). Ensure they are correctly loaded for analysis.
+
+---
+
+## Getting Started
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/harshgupta1810/T20_worldcup_analysis
+   cd T20_worldcup_analysis
+   ```
+
+2. **Set Up Python Environment**:
+   - Install required Python libraries:
+     ```bash
+     pip install pandas numpy jupyter matplotlib
+     ```
+   - Open `t20dataprocessing.ipynb` to preprocess and analyze the data.
+
+3. **Power BI Analysis**:
+   - Open the `.pbix` files in Power BI Desktop to explore pre-built dashboards and insights.
+
+4. **Modify DAX Measures**:
+   - Enhance or customize reports using the provided DAX measures in `DAX Measures and Calculated columns.csv` or `.xlsx`.
+
+---
+
+## Key Insights
+
+- Identify top-performing players and teams.
+- Evaluate batting and bowling strategies.
+- Uncover patterns in match results and tournament trends.
+
+---
+
+## Contribution Guidelines
+
+We welcome contributions! To contribute:
+1. Fork the repository.
+2. Create a feature branch:
+   ```bash
+   git checkout -b feature-name
+   ```
+3. Commit your changes:
+   ```bash
+   git commit -m "Add feature"
+   ```
+4. Push to the branch:
+   ```bash
+   git push origin feature-name
+   ```
+5. Open a Pull Request.
+
+---
+
+## License
+
+This project is licensed under the MIT License. For more details, see the [LICENSE](LICENSE) file.
+
+---
+
+**Contact**: For questions or suggestions, feel free to open an issue or reach out to the repository maintainer.
+
+**Disclaimer**: This project is for educational and analytical purposes only.
+
+---
+
+Explore, analyze, and enjoy T20 cricket like never before!
+
+--- 
+
+Let me know if you want any additional sections or modifications!
